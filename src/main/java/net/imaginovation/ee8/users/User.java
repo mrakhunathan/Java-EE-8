@@ -3,18 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package net.imaginovation.ee8;
+package net.imaginovation.ee8.users;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author Rakhunathan
  */
-public class User {
+@Entity
+@Table(name = "`user`")
+public class User implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "auto_gen")
+    @SequenceGenerator(name = "auto_gen", sequenceName = "user_id_seq", allocationSize = 1)
     int id;
     String name;
+    @Temporal(TemporalType.DATE)
     Date dob;
 
     public User(int id, String name, Date dob) {

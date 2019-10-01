@@ -49,4 +49,9 @@ public class User {
     public void setDob(Date dob) {
         this.dob = dob;
     }
+
+    @Override
+    public String toString() {
+        return "User{" + "id=" + id + ", name=" + name + ", dob=" + dob + '}';
+    }
 }

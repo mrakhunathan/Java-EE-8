@@ -36,7 +36,9 @@ public class UserService {
     @Path("/{userId}")
     @Produces(MediaType.APPLICATION_JSON)
     public User getUserById(@PathParam("userId") int userId) {
-        return userDao.getUserById(userId);
+        User user=userDao.getUserById(userId);
+        System.err.println(user);
+        return user;
     }
 
     @POST

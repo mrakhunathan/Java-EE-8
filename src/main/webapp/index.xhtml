@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+    </h:head>
+    <h:body>
+        <h:form id="indexForm">
+            <p:outputLabel for="popup" value="BeanValue" />
+            <p:inputText id="thisText1" value="#{myBean.myTf}"/>
+            <p:outputLabel for="popup" value=" Date" />
+            <p:datePicker id="popup" value="#{myBean.thisDate}" />
+            <br/><br/>
+            <p:outputLabel id="displayer" value="#{myBean.myTf}" />
+            <p:commandButton ajax="true" update="result,displayer"
+                             style="align-self: flex-end;margin-left: 18%" value="Save"
+                             action="#{myBean.printMyValue()}" icon="pi pi-plus" />
+            <br/><br/>
+            <p:outputLabel id="result" value="#{myBean.thisDate}" />
+        </h:form>
+    </h:body>
+</html>
